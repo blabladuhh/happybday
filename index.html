@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You♡</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #password-input {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #submit-btn, #tap-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #gif-container, #tap-container, #video-container {
+            display: none;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>For You♡</h1>
+
+    <div id="password-form">
+        <label for="password-input">In what month were you born?</label>
+        <input type="text" id="password-input" placeholder="Enter month">
+        <br>
+        <button id="submit-btn" onclick="checkPassword()">Submit</button>
+    </div>
+
+    <div id="gif-container">
+        <img src="https://media.giphy.com/media/SwIMZUJE3ZPpHAfTC4/giphy.gif" alt="GIF">
+    </div>
+
+    <div id="tap-container">
+        <p>Tap in to continue</p>
+        <button id="tap-btn" onclick="showVideo()">Tap In</button>
+    </div>
+
+    <div id="video-container">
+        <!-- Replace 'https://drive.google.com/file/d/1g-sC9LUr8Ozgh3F0MlVEBcVkZNuzI-cH/preview' with the actual URL of your video -->
+        <iframe width="560" height="315" src="https://drive.google.com/file/d/1g-sC9LUr8Ozgh3F0MlVEBcVkZNuzI-cH/preview" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var passwordInput = document.getElementById("password-input").value.toLowerCase();
+            var correctPassword = "december";
+
+            if (passwordInput === correctPassword) {
+                // Show the gif container and ask the user to tap in
+                document.getElementById("password-form").style.display = "none";
+                document.getElementById("gif-container").style.display = "block";
+                document.getElementById("tap-container").style.display = "block";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+
+        function showVideo() {
+            // Show the video container and hide the tap container
+            document.getElementById("tap-container").style.display = "none";
+            document.getElementById("video-container").style.display = "block";
+        }
+    </script>
+</body>
+</html>
